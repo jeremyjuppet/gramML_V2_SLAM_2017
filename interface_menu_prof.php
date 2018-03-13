@@ -68,20 +68,25 @@
         
         <div id="page">
             <div id="exo">
-                 <?php
-                    $id =$_GET['exo_id'];
-
-                    echo "<form id='exo_form' method='post'>";
-                        <div class="header_exo">
-                        <input type="text" placeholder="Nom de l'exercice"/>
-                        </div>
-                    echo "</form>";
+                 
+                 <?php$id =$_GET['exo_id'];
+                 $ligneExoById=getExoByID($id);
+                 $var = $ligneExoById['nom_exercice'];
                  ?>
-                 <!--
-                 <form id="exo_form" method="post">
-                     <div class="header_exo">
-                        <input type="text" placeholder="Nom de l'exercice"/>
-                     </div>
+                    
+                    <form id='exo_form' method='post'>
+                        <div class="header_exo">
+                        <?php
+                        $id =$_GET['exo_id'];
+                        $ligneExoById=getExoByID($id);
+                         
+                        while ($row = $ligneExoById->fetchArray(SQLITE3_ASSOC )) {
+                            $nomExercice = $row['nom_exercice'];
+                            $pkExercice = $row['pk_exercice'];
+                        }
+                        echo "<input type='text' placeholder='$nomExercice | id : $pkExercice '/>"?>
+                        </div>
+                    </form>
                      
                      <h2>Consigne :</h2>
                      <textarea name="consigne" cols="50" row="5"></textarea>
@@ -94,12 +99,12 @@
 					 
 						<button type="button" class="prev_button" onclick="analyse();">Prévisualiser la phrase</button>
                      
-                     <input type="submit" value="Valider l'exercice"/>
+                     <input type="submit" class="prev_button" value="Valider l'exercice"/>
 					   
                      
                      <br/>
 					
-					</form> -->
+					</form> 
                         <script type="text/javascript"><!--
 							
                            function replaceAll(str, find, replace) {
@@ -218,7 +223,7 @@
                              }
 
 
-                           //--></script> <!--script -->
+                           </script> <!--script -->
                         
                         <p id="phrase_analyse" class="visualisation">Prévisualisation</p>
               
