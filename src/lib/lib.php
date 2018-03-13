@@ -1,5 +1,5 @@
 <?php
-$db= new SQLite3('..\gramml.db');
+$db= new SQLite3('src\db\gramml.db');
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -43,10 +43,12 @@ function getAllLecon($db){
 	$t = $db->query($req);
 	return $t;
 }
-function getExoByID($db, $id){
-	$req= "SELECT * FROM Exercices WHERE pk_exercice=$id";
+function getExoByID($id){
+	GLOBAL $db;
+        $req= "SELECT * FROM Exercices WHERE pk_exercice=$id";
 	$t = $db->query($req);
 	return $t;
 }
+
 
 ?>
