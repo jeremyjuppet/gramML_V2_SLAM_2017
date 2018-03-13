@@ -12,6 +12,7 @@ function showListEx(){
     return $requeteShowList;
 }
 //getallex
+//commit
 function getAllEx($db){
 	$req= "SELECT * FROM Exercices";
 	$t = $db->query($req);
