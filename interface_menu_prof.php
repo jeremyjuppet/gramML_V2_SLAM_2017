@@ -62,7 +62,7 @@
                      
                      <h2>Correction :</h2>
                      
-                     <textarea id="phrase_codee" rows="15" cols="100%">&lt;cp&gt;Depuis le haut jusqu'en bas&lt;/cp&gt;, &lt;sujet&gt;les souris&lt;/sujet&gt; &lt;verbe&gt;chassent&lt;/verbe&gt; &lt;cv&gt;les chats &lt;sub&gt;&lt;sujet&gt;qui&lt;/sujet&gt; &lt;verbe&gt;mangent&lt;/verbe&gt; &lt;cv&gt;du fromage&lt;/cv&gt;&lt;/sub&gt;&lt;/cv&gt;</textarea>
+                     <textarea id="phrase_codee" rows="15" cols="100%"><!--todo : phrase de correction : infoExo['phrase']-->&lt;cp&gt;Depuis le haut jusqu'en bas&lt;/cp&gt;, &lt;sujet&gt;les souris&lt;/sujet&gt; &lt;verbe&gt;chassent&lt;/verbe&gt; &lt;cv&gt;les chats &lt;sub&gt;&lt;sujet&gt;qui&lt;/sujet&gt; &lt;verbe&gt;mangent&lt;/verbe&gt; &lt;cv&gt;du fromage&lt;/cv&gt;&lt;/sub&gt;&lt;/cv&gt;</textarea>
                      <br/>
 					 
 						<button type="button" class="prev_button" onclick="analyse();">Prévisualiser la phrase</button>
