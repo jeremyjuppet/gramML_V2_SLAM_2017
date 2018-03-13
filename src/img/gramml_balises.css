@@ -1,0 +1,236 @@
+.f_Sujet,.f_S,.fS,.LS {
+    border-style: none none solid  none;
+    border-color: red;
+	border-width:3px;
+	text-align:center;
+	display:inline;
+	min-width:1.5em;
+    }
+
+.f_Sujet:after,.f_S:after,.fS:after {
+	content:"sujet";
+	font-size:0.6em;
+	color:red;
+	text-align:center;
+	
+	
+	position:absolute;
+	display:block;
+	margin-bottom:-1em;
+	
+	width:20px;
+	
+	
+	
+	
+	
+	
+
+}
+
+	
+  
+.f_attribut, .fAtt, .f_Att {
+    border-style: none none double  none;
+    border-color: red;
+    
+}
+
+.f_Verbe, .fV, .f_V {
+	
+    border: solid red;
+    margin-left  : 5px;
+    margin-right :5px;
+	
+	text-align:center;
+    min-width:1.5em;
+    }
+.f_Verbe:after,.f_V:after,.fV:after {
+	content:"verbe";
+	font-size:0.6em;
+	color:red;
+	text-align:center;
+	
+	position:absolute;
+	display:block;
+	margin-bottom:-1em;
+	width:inherit;
+	min-width:20px;
+}
+    
+.f_VerbePrincipal, .fVP, .f_VP{
+    color: red;
+}
+
+
+.f_ComplementVerbe, .f_CV, .fCV{
+border-style : none none solid none ;
+border-color : black;
+
+text-align:center;
+min-width:1.5em;
+}
+
+.f_ComplementObjet,.f_CO,.fCO{
+border-style : none none solid none;
+border-color : blue;
+
+text-align:center;
+min-width:1.5em;
+}
+
+.f_ComplementObjetDirect,.f_COD,.fCOD, .f_CVD, .fCVD{
+border-style : none none double none;
+border-width:3px;
+border-color : blue;
+
+text-align:center;
+min-width:1.5em;
+}
+
+.f_ComplementObjetDirect:after,.f_COD:after,.fCOD:after, .f_CVD:after, .fCVD:after{
+content:"cvd";
+
+	
+	text-align:center;
+	color:blue;
+	font-size:0.6em;
+	
+	position:absolute;
+	display:block;
+	margin-bottom:-1em;
+	
+	width:20px;
+	
+	
+}
+
+.f_ComplementObjetIndirect,.f_COI,.fCOI, .f_CVI, .fCVI{
+border-style : none none dotted none;
+border-width:1px;
+border-color : blue;
+
+text-align:center;
+min-width:1.5em;
+}
+
+.f_ComplementObjetIndirect:after,.f_COI:after,.fCOI:after, .f_CVI:after, .fCVI:after{
+content:"cvi";
+
+	
+	text-align:center;
+	color:blue;
+	font-size:0.6em;
+	
+	position:absolute;
+	display:block;
+	margin-bottom:-1em;
+	
+	width:20px;
+}
+
+
+.f_ComplementPhrase,.f_ComplementCirconstanciel,.f_CP,.fCP,.f_CC,.fCC{
+border-style : none none solid none;
+border-color : green;
+
+text-align:center;
+min-width:1.5em;
+}
+.f_ComplementPhrase:after,.f_ComplementCirconstanciel:after,.f_CP:after, .fCP:after, .f_CC:after, .fCC:after{
+content:"cp";
+
+	
+	text-align:center;
+	color:green;
+	font-size:0.6em;
+	
+	
+	position:absolute;
+	display:block;
+	margin-bottom:-1em;
+	
+	width:20px;
+}
+
+
+.f_Noyou, .fNoy{
+border-style :  solid none none none;
+border-width:1px;
+border-color : grey;
+padding-top : 2px;
+	
+	
+}
+
+.n_Phrase, .nPhr, .n_Phr, .nPhrase{
+border-style: inset;
+border-width: 0.5em;
+padding:1.5em;
+margin-left : 0.2em;
+margin-right : 0.2em;
+
+
+}   
+
+.n_Phrase:after, .nPhr:after, .n_Phr:after, .nPhrase:after{
+	content:"phrase";
+	text-align:center;
+	color:grey;
+	font-size:0.6em;
+	
+	position:absolute;
+	display:block;
+	margin-bottom:-5em;
+	
+	width:20px;
+
+}
+
+
+.n_Independante, .nPInde, .n_PInde{
+
+display:inline-block;
+border-style: ridge;
+padding:1.5em;
+margin-left : 5px;
+margin-right : 5px;
+}   
+
+
+
+.n_Subordonnee, .nPSub, .n_PSub{
+	display:inline;
+border-style: dotted ;
+border-width:1px;
+padding:5px;
+margin:5px;
+margin-bottom:1em;
+}   
+
+
+.n_ConjCoord, .n_ConjonctionSubordination{
+color:aqua;
+}
+.n_Pronom, .n_Pr{
+color:plum;
+}
+.n_PronomRelatif, .n_PrRel{
+color:plum;
+font-style:italic;
+}
+.n_PronomPersonnel, .n_PrPer{
+color:magenta;
+font-style:bold;
+font-size:1.3em;
+}
+
+.n_Nom, .n_N{
+color:blueviolet;
+}
+.n_Adjectif, .n_Adj{
+color:cadetBlue;
+}
+.n_Determinant, .n_Det{
+color:pink;
+}
