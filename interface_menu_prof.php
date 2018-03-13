@@ -1,24 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-    $db= new SQLite3('src\db\gramml.db');
     include 'src\lib\lib.php';
-
-    //$allLec=getAllLecon($db);
-    $allEx=getAllEx($db);
-
-    while ($row = $allEx->fetchArray(SQLITE3_ASSOC )) {
-        $pkExercice = $row['pk_exercice'];
-        $nomExercice = $row['nom_exercice'];
-        $level = $row['fk_niveau'];
-        $classe = $row['fk_classe'];
-        $enonce = $row['enonce'];
-        $section = $row['fk_section'];
-        $typeEx = $row['fk_typeExercice'];
-        $professeur = $row['fk_professeur'];
-    }
-
-
+    $listeExos = listeExo();
 ?>
 
 <html>
@@ -42,13 +26,7 @@
                 <h1>Exercices</h1>
                 <ul>
                     <?php
-                        while ($row = $allEx->fetchArray(SQLITE3_ASSOC )) {
-                            $nomExercice = $row['nom_exercice'];
-                            $pkExercice = $row['pk_exercice'];
-                            echo "<li><a href='interface_menu_prof.php?exo_id=$pkExercice'>";
-                            echo "id: $pkExercice | $nomExercice";
-                            echo "</li></a>";
-                        }
+                       echo $listeExos;
                     ?>
                 </ul>
             </div>
@@ -68,29 +46,19 @@
         
         <div id="page">
             <div id="exo">
-                 
-                 <?php$id =$_GET['exo_id'];
-                 $ligneExoById=getExoByID($id);
-                 $var = $ligneExoById['nom_exercice'];
-                 ?>
-                    
                     <form id='exo_form' method='post'>
                         <div class="header_exo">
                         <?php
+                        
                         $id =$_GET['exo_id'];
-                        $ligneExoById=getExoByID($id);
-                         
-                        while ($row = $ligneExoById->fetchArray(SQLITE3_ASSOC )) {
-                            $nomExercice = $row['nom_exercice'];
-                            $pkExercice = $row['pk_exercice'];
-                        }
-                        echo "<input type='text' placeholder='$nomExercice | id : $pkExercice '/>"?>
+                        $infoExo = getAllInfoExoById($id);?>
+                        <input type="text" placeholder= <?=$id.$infoExo['nomExercice']?> />
                         </div>
                     </form>
                      
                      <h2>Consigne :</h2>
-                     <textarea name="consigne" cols="50" row="5"></textarea>
-					   <textarea id="phrase_base" cols="50" row="5"></textarea>
+                     <textarea name="consigne" cols="50" row="5"><?=$infoExo['enonce'];?></textarea>
+					   <textarea id="phrase_base" cols="50" row="5"><!--todo : phrase de base : infoExo['phrase']--></textarea>
                      
                      <h2>Correction :</h2>
                      
