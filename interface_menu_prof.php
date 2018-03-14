@@ -25,6 +25,7 @@
             <div id="listeexercices">
                 <h1>Exercices</h1>
                 <ul>
+                    
                     <?php
                        echo $listeExos;
                     ?>
@@ -52,7 +53,11 @@
                         
                         $id =$_GET['exo_id'];
                         $infoExo = getAllInfoExoById($id);?>
-                        <input type="text" placeholder= <?=$id.$infoExo['nomExercice']?> />
+                        <input type="text" placeholder= '<?=$infoExo['nomExercice']?> '/>
+                        <div class="btn_addsup">
+                        <button type="button" id="btn_add" href="interface_menu_prof.php?exo_id=0">Créer</button>
+                        <button type="button" id="btn_sup" >Supprimer</button>
+                        </div>
                         </div>
                     </form>
                      
@@ -271,6 +276,13 @@
                                 //alert('after recurse :'+root.childNodes.item(i));
                                 }
         }
+
+        var btn_Add = document.getElementById('btn_add');
+
+        btn_Add.addEventListener('click', () => {
+            document.location.href="interface_menu_prof.php?exo_id=0";
+        });
+        
         </script> <!--script -->
         
     </body>
