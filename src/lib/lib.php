@@ -62,14 +62,35 @@ function listeExo(){
                             $nomExercice = $row['nom_exercice'];
                             $pkExercice = $row['pk_exercice'];
                             
-                             $listeExos .= "<li><a href='interface_menu_prof.php?exo_id=$pkExercice'>";
-                             $listeExos .= "id: $pkExercice | $nomExercice";
-                             $listeExos .= "</li></a>";
+                             $listeExos .= "<a href='interface_menu_prof.php?exo_id=$pkExercice'><li>";
+                             $listeExos .= "$nomExercice</li></a>";
                         }
     return $listeExos;
 }
 
 function getAllInfoExoById($id){
+
+    if($id == 0)
+    {
+        $professeur = 0;
+        $typeEx=0;
+        $section=0;
+        $enonce="";
+        $classe=0;
+        $level=0;
+        $nomExercice = "Insérer nom";
+        $infoExo= array(
+            "nomExercice" =>$nomExercice, 
+            "level" =>$level,
+            "classe" =>$classe,
+            "enonce" =>$enonce,
+            "section" =>$section,
+            "typeEx" =>$typeEx,
+            "professeur" =>$professeur,
+        );
+
+        return $infoExo;
+    }
     
     $exById=getExoByID($id);
     
