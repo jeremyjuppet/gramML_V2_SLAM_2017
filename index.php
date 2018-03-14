@@ -15,7 +15,7 @@
             </div>
 	</header>
 		
-	<form type="post" action="interface_menu_prof.php" class="inscription">
+	<form method="post" action="interface_menu_prof.php?exo_id=0" class="inscription">
             <br>
             <div class="label">
 		<h1>GramML.</h1>
