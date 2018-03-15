@@ -94,6 +94,7 @@
             if($db->exec($request)===true){ 
 		
                 $_SESSION['identifiant'] = $id;
+                header('Location: interface_menu_eleve.php');
                 return true;
 				
             }
