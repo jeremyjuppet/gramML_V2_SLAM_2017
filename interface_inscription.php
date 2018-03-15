@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Connexion</title>
+        <title>Inscription</title>
     </head>
     <body>
         <h1>Inscription:</h1>
