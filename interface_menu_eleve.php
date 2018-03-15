@@ -7,7 +7,12 @@
     </head>
     <body>
         <header class="header">
+            <?php
             
+                include 'DBHandler.php';
+                echo $_SESSION['identifiant'];
+            
+            ?>
         </header>
         
          <div id="navbar">
