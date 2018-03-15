@@ -55,7 +55,7 @@
         <a href="interface_inscription.php">Je m'inscris</a>
         
 	<footer>
-            <a href="interface_index.php">A Propos</a>
+            <a href="interface_index.php">A Propios</a>
 	</footer>
     </body>
 </html>
