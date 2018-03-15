@@ -169,13 +169,42 @@ footer a{
     margin-top: 5px;
     height: 75%;
 }
-.btn_addsup{
+.form_sup{
     position: absolute;
-    top: 27.5%;
-    right: 8px;
+    top: 11.5%;
+    right: 10.75%;
+    z-index: 2;
 
 }
-#btn_add, #btn_sup{
+.btn_sup{
+    background-color: #ffffff24;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    width: 110px;
+    color: white;
+    border:1px solid #D06161;;
+    outline: none;
+    
+}
+
+.btn_sup:hover{
+    background-color: #bb333370;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    width: 110px;
+    color: white;
+    border:1px solid #9e4b47;
+    outline: none;
+}
+.btn_addsup{
+    position: absolute;
+    top: 29.75%;
+    right: 128px;
+
+}
+#btn_add{
     background-color: #ffffff24;
     border-radius: 5px;
     font-size: 20px;
@@ -185,7 +214,7 @@ footer a{
     border:1px solid #D06161;;
     outline: none;
 }
-#btn_add:hover, #btn_sup:hover{
+#btn_add:hover{
     background-color: #bb333370;
     border-radius: 5px;
     font-size: 20px;
