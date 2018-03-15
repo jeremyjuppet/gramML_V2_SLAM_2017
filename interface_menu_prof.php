@@ -82,6 +82,8 @@
                         <input type="submit" class="prev_button" value="Valider l'exercice"/>
                         <br/>
 					
+                </form> 
+                
                         <script type="text/javascript"><!--
 							
                            function replaceAll(str, find, replace) {

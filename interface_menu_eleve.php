@@ -19,12 +19,6 @@
                 <img src="src/img/user.png" alt="user" align="right" style="margin-top:5px; margin-right:15px; width:40px;height:40px;-webkit-filter: drop-shadow(0px 0px 5px #222 );filter: drop-shadow(0px 0px 5px #222);">
                 </a>
             </div>
-            <?php
-            
-                include 'DBHandler.php';
-                echo $_SESSION['identifiant'];
-            
-            ?>
         </header>
         
          <div id="navbar">
@@ -284,8 +278,7 @@
         });
         
         </script>
-        
-        
+
     <!--script -->
         
     </body>
