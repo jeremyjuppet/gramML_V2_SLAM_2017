@@ -50,7 +50,7 @@
             <input type="text" id="idLogin" name="idLogin" placeholder="Identifiant" value=""><br>
             <input type="password" id="passwordLogin" name="passwordLogin" placeholder="Mot de passe" value=""><br>
             <input onclick="verification()" type="submit" value="Se Connecter"><br>
-            <br/><a id="lien_inscription" href="interface_inscription.php">Je m'inscris</a>
+            <a id="lien_inscription" href="interface_inscription.php">Je m'inscris</a>
         </form>
                 
 	<footer>
