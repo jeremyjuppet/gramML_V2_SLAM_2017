@@ -92,7 +92,8 @@
             
             //Si la requete foctionne on renvoie true
             if($db->exec($request)===true){ 
-			
+		
+                $_SESSION['identifiant'] = $id;
                 return true;
 				
             }
