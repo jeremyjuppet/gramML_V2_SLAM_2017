@@ -47,37 +47,44 @@
         
         <div id="page">
             <div id="exo">
-                    <form id='exo_form' method='post'>
+                <?php $id =$_GET['exo_id'];?>
+                <form class="form_sup" action='src/script/deleteExo.php' method="POST">
+                            <input name='id' type='hidden' value='<?=$id?>'>
+                            <input type='submit' class='btn_sup' value='Supprimer'>        
+                        </form>
+                <form id='exo_form' action='src/script/envoiExo.php' method='post'>
                         <div class="header_exo">
                         <?php
-                        
-                        $id =$_GET['exo_id'];
-                        $infoExo = getAllInfoExoById($id);?>
-                        <input type="text" placeholder= '<?=$infoExo['nomExercice']?> '/>
+                        $infoExo = getAllInfoExoById($id);
+                        ?>
+                        <input type="text" name="nom_exercice" placeholder= '<?=$infoExo['nomExercice']?> '/>
                         <div class="btn_addsup">
                         <button type="button" id="btn_add" href="interface_menu_prof.php?exo_id=0">Créer</button>
-                        <button type="button" id="btn_sup" >Supprimer</button>
+                           
+                         
+                        
+ 
                         </div>
                         </div>
-                    </form>
-                     
+                   
+                    
                      <h2>Consigne :</h2>
-                     <textarea name="consigne" cols="50" row="5"><?=$infoExo['enonce'];?></textarea>
-					   <textarea id="phrase_base" cols="50" row="5"><!--todo : phrase de base : infoExo['phrase']--></textarea>
+                        <textarea name="enonce" cols="50" row="5"><?=$infoExo['enonce'];?></textarea>
+                        <textarea name="phrase_base" id="phrase_base" cols="50" row="5"><?=$infoExo['phrase'];?></textarea>
                      
                      <h2>Correction :</h2>
                      
-                     <textarea id="phrase_codee" rows="15" cols="100%"><!--todo : phrase de correction : infoExo['phrase']-->&lt;cp&gt;Depuis le haut jusqu'en bas&lt;/cp&gt;, &lt;sujet&gt;les souris&lt;/sujet&gt; &lt;verbe&gt;chassent&lt;/verbe&gt; &lt;cv&gt;les chats &lt;sub&gt;&lt;sujet&gt;qui&lt;/sujet&gt; &lt;verbe&gt;mangent&lt;/verbe&gt; &lt;cv&gt;du fromage&lt;/cv&gt;&lt;/sub&gt;&lt;/cv&gt;</textarea>
+                     <textarea name="correction" id="phrase_codee" rows="15" cols="100%"><?=$infoExo['correction'];?></textarea>
                      <br/>
 					 
-						<button type="button" class="prev_button" onclick="analyse();">Prévisualiser la phrase</button>
+                    <button type="button" class="prev_button" onclick="analyse();">Prévisualiser la phrase</button>
                      
                      <input type="submit" class="prev_button" value="Valider l'exercice"/>
-					   
-                     
+
                      <br/>
 					
 					</form> 
+                
                         <script type="text/javascript"><!--
 							
                            function replaceAll(str, find, replace) {
