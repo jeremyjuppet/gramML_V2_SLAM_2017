@@ -416,21 +416,25 @@ margin:1px;
 }
 
 .prev_button:hover {
-	
-	font-size: 20px;
-    
+    font-size: 20px;
     border:none;
-    
     margin: auto;
     height: 50px;
     background-color: #c43b3b;
     color: white;
     border-radius: 5px;
-	
-	box-shadow: 0px 2px 10px #00000091;
-    
+    box-shadow: 0px 2px 10px #00000091;
+    margin-top: 25px;	
+}
+.consigne{
+    background-color: white;
+    border: 1px solid rgb(169, 169, 169);
+    border-radius: 5px;
     margin-top: 25px;
-	
+    margin-left: 7%;
+    width: 85%;
+    text-align: justify;
+    padding: 2px;
 }
 
 @keyframes flip-scale-up-hor{0%{transform:scale(1) rotateX(0)}50%{transform:scale(1.25) rotateX(-90deg)}100%{transform:scale(1) rotateX(-360deg)}}

@@ -68,7 +68,27 @@ function listeExo(){
                         }
     return $listeExos;
 }
-
+function listeExoEleve(){
+    $allEx=getAllEx();
+    $listeExos = "";
+    while ($row = $allEx->fetchArray(SQLITE3_ASSOC )) {
+                            $nomExercice = $row['nom_exercice'];
+                            $pkExercice = $row['pk_exercice'];
+                            
+                             $listeExos .= "<a href='interface_menu_eleve.php?exo_id=$pkExercice'><li>";
+                             $listeExos .= "$nomExercice</li></a>";
+                        }
+    return $listeExos;
+}
+/**
+ * Fonction qui récupère les données d'une colonne d'une table à partir d'un id.
+ * @author SLAM 2017
+ * @param $ la variable id des informations à
+ * @param $nomExo nom de l'exo
+ * @param $enonce enone de l'exo
+ * @param $correction la correction de l'exo
+ * @param $phrase_base la phrase d'expemple de l'exo
+ */
 function getAllInfoExoById($id){
 
     if($id == 0)
@@ -82,6 +102,63 @@ function getAllInfoExoById($id){
         $level=0;
         $correction=0;
         $nomExercice = "Insérer nom";
+        $infoExo= array(
+            "nomExercice" =>$nomExercice, 
+            "level" =>$level,
+            "classe" =>$classe,
+            "enonce" =>$enonce,
+            "phrase" =>$phrase,
+            "section" =>$section,
+            "typeEx" =>$typeEx,
+            "professeur" =>$professeur,
+            "correction" =>$correction
+        );
+
+        return $infoExo;
+    }
+    
+    $exById=getExoByID($id);
+    
+    while ($row = $exById->fetchArray(SQLITE3_ASSOC )) {
+        $pkExercice = $row['pk_exercice'];
+        $nomExercice = $row['nom_exercice'];
+        $level = $row['fk_niveau'];
+        $classe = $row['fk_classe'];
+        $enonce = $row['enonce'];
+        $phrase = $row['phrase'];
+        $section = $row['fk_section'];
+        $typeEx = $row['fk_typeExercice'];
+        $professeur = $row['fk_professeur'];
+        $correction = $row['fk_correction'];
+    }
+    $infoExo= array(
+        "nomExercice" =>$nomExercice, 
+        "level" =>$level,
+        "classe" =>$classe,
+        "enonce" =>$enonce,
+        "phrase" =>$phrase,
+        "section" =>$section,
+        "typeEx" =>$typeEx,
+        "professeur" =>$professeur,
+        "correction" =>$correction
+    );
+    return $infoExo;
+      //echo '<input type="text" placeholder="'."$nomExercice | id : $pkExercice ".'"/>';   
+}
+
+function getAllInfoExoByIdEleve($id){
+
+    if($id == 0)
+    {
+        $professeur = 0;
+        $typeEx=0;
+        $section=0;
+        $enonce="";
+        $phrase="";
+        $classe=0;
+        $level=0;
+        $correction=0;
+        $nomExercice = "";
         $infoExo= array(
             "nomExercice" =>$nomExercice, 
             "level" =>$level,
