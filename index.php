@@ -26,7 +26,7 @@
 	</form>
 
 	<footer>
-            <a href="index.php">A Propos</a>
+            <a href="interface_index.php">A Propos</a>
 	</footer>
     </body>
 </html>
