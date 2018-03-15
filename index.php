@@ -51,11 +51,10 @@
             <input type="password" id="passwordLogin" name="passwordLogin" placeholder="Mot de passe" value=""><br>
             <input onclick="verification()" type="submit" value="Se Connecter"><br>
 	</form>
-        
-        <a href="interface_inscription.php">Je m'inscris</a>
-        
+                
 	<footer>
-            <a href="interface_index.php">A Propios</a>
+            <a href="interface_index.php">A Propos</a>
+            <a href="interface_inscription.php">Je m'inscris</a>
 	</footer>
     </body>
 </html>
