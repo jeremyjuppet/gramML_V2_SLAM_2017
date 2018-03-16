@@ -12,7 +12,7 @@ body{
 	font-family: 'Avantgarde', TeX Gyre Adventor, URW Gothic L, sans-serif;
 	padding: 0;
 	margin: 0;
-	background: url("http://christopher.rolin.free.fr/GramML/img/back.jpg") no-repeat;
+	background: url("src/img/back.jpg") no-repeat;
 	background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -20,7 +20,7 @@ body{
 
 .indexBack{
 	background-color:#FAF8F8;
-	background-image: url("http://christopher.rolin.free.fr/GramML/img/back.jpg");
+	background-image: url("src/img/back.jpg");
 }
 
 .formTitle{
