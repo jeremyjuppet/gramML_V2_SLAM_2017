@@ -52,7 +52,8 @@
                     <input name='id' type='hidden' value='<?=$id?>'>
                     <input type='submit' class='btn_sup' value='Supprimer'>        
                 </form>
-                <form id='exo_form' action='src/script/envoiExo.php' method='post'>
+                <form id='exo_form' action='src/script/envoiExo.php' method='POST'>
+                <input name='id' type='hidden' value='<?=$id?>'>
                 <div class="header_exo">
                     <?php
                     $infoExo = getAllInfoExoById($id);
