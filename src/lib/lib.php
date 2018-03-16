@@ -229,12 +229,19 @@ function getAllInfoExoByIdEleve($id){
 function deleteExo($id)
 {
     GLOBAL $db;
-    $query = "DELETE FROM exercices WHERE pk_exercice = $id;";
     $id = intval($id);
+    $query = "DELETE FROM exercices WHERE pk_exercice = $id;";
     if($db->exec($query) != TRUE)
     {
         echo "<h1 style='color: red; font-weight: bold;'>ERREUR requête delete pour l'id : $id</h1>";
     }
+    $queryCorrec = "DELETE FROM Corrections WHERE fk_exercice = $id";
+     if($db->exec($queryCorrec) != TRUE)
+    {
+        echo "<h1 style='color: red; font-weight: bold;'>ERREUR requête delete pour l'id : $id</h1>";
+    }
+    
+    
 }
 
 /**
@@ -249,6 +256,7 @@ function deleteExo($id)
  */
 function insertExo($nomExo, $enonce, $correction, $phrase_base)
 {
+
     GLOBAL $db;
     
     $query = "INSERT INTO Exercices(nom_exercice, enonce, phrase) VALUES('$nomExo','$enonce','$phrase_base' );";
@@ -276,5 +284,50 @@ function insertExo($nomExo, $enonce, $correction, $phrase_base)
     
 }
 
-function (){}
+//modifExo.php
+
+/**
+ * Fonction qui modifie un exo.
+ * @param $db dataBase
+ * @param $id de l'exo
+ * @param ...
+ * @param $pk_correction est l'id de la correction 
+ * @author Théo Ségard
+ */
+function modifExo($id, $nomExo, $enonce, $correction, $phrase_base)
+{
+    GLOBAL $db;
+    $query = "UPDATE exercices SET nom_exercice = '$nomExo', enonce = '$enonce', phrase = '$phrase_base' WHERE pk_exercice = $id;";
+    $id = intval($id);
+    if($db->exec($query) != TRUE)
+    {
+        echo "<h1 style='color: red; font-weight: bold;'>ERREUR requête update exercices pour l'id : $id</h1>";
+    }
+    
+    $query = "UPDATE Corrections SET correction = '$correction' WHERE fk_exercice = $id;";
+    if($db->exec($query) != TRUE)
+    {
+        echo "<h1 style='color: red; font-weight: bold;'>ERREUR requête update corrections pour l'id : $id</h1>";
+    }
+}
+
+function inputNomExo($id, $infoExo){
+    if($id > 0){
+        echo "<input type='text' name='nom_exercice' value='".$infoExo['nomExercice']."'/>";    
+    }
+    else{
+        echo "<input type='text' name='nom_exercice' placeholder= '".$infoExo['nomExercice']."'/>";
+    }  
+}
+
+function saveAnswerExo($id,$answer){
+    
+    GLOBAL $db;
+     $query = "INSERT INTO Reponses(fk_exercice,reponse) VALUES('".$id."', '".$answer."');";
+     
+       if($db->exec($query) != TRUE)
+    {
+        echo "<h1 style='color: red; font-weight: bold;'>ERREUR requête insert pour Reponse</h1>";
+    }
+}
 ?>

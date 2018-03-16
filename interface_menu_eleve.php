@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>MenuProf</title>
+        <title>MenuEleve</title>
         <link href="style.css" rel="stylesheet" type="text/css">
         <link href="src/img/gramml_balises.css" rel="stylesheet" type="text/css">
     </head>
@@ -19,6 +19,12 @@
                 <img src="src/img/user.png" alt="user" align="right" style="margin-top:5px; margin-right:15px; width:40px;height:40px;-webkit-filter: drop-shadow(0px 0px 5px #222 );filter: drop-shadow(0px 0px 5px #222);">
                 </a>
             </div>
+            <?php
+            
+                require_once('src/login/DBHandler.php');
+                echo $_SESSION['identifiant'];
+            
+            ?>
         </header>
         
          <div id="navbar">
@@ -44,12 +50,13 @@
         <div id="page">
             <div id="exo">
                 <?php $id =$_GET['exo_id'];?>
-                <form id='exo_form' > <!--action='src/script/envoiExo.php'method='post'-->
+                <form id='exo_form'action="src/script/saveAnswer.php"  method="POST"> <!--action='src/script/envoiExo.php'method='post'-->
                 <div class="header_exo">
                     <?php
                     $infoExo = getAllInfoExoByIdEleve($id);
                     ?>
-                    <h1 name="nom_exercice" id="nomExo"><?=$infoExo['nomExercice']?></h1>    
+                    <h1 name="nom_exercice" id="nomExo"><?=$infoExo['nomExercice']?></h1>  
+                    <input name='id' type='hidden' value='<?=$id?>'>
                 </div>
                    
                     
@@ -62,7 +69,7 @@
                         </div>
                      
                      <h2>Réponse :</h2>                    
-                        <textarea name="response" id="phrase_codee" rows="15" cols="100%" value="Taper votre réponse ici."></textarea>
+                        <textarea name="reponse" id="phrase_codee" rows="15" cols="100%" value="Taper votre réponse ici."></textarea>
                         <br/>		 
                         <button type="button" class="prev_button" onclick="analyse();">Prévisualiser la phrase</button>
                         <input type="submit" class="prev_button" value="Valider l'exercice"/>

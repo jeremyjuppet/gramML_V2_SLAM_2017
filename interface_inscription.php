@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Inscription:</h1>
-        <form action="signinDB.php" method="POST" enctype="multipart/form-data">
+        <form action="src/login/login_Signin.php" method="POST" enctype="multipart/form-data">
             <input type="text" name="idSignin" placeholder="Entrez votre identifiant"><br>
             <input type="password" name="passwordSignin" placeholder="Entrez votre mot de passe"><br>
             <input type="text" name="prenomSignin" placeholder="Entrez votre prénom"><br>

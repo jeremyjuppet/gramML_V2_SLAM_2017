@@ -22,7 +22,7 @@
             
             <?php
             
-                include 'DBHandler.php';
+                require_once('src/login/DBHandler.php');
                 echo $_SESSION['identifiant'];
             
             ?>
@@ -58,23 +58,23 @@
                     <input name='id' type='hidden' value='<?=$id?>'>
                     <input type='submit' class='btn_sup' value='Supprimer'>        
                 </form>
-                <form id='exo_form' action='src/script/envoiExo.php' method='POST'>
+                <form id='exo_form' action='src/script/addModifExo.php' method='POST'>
                 <input name='id' type='hidden' value='<?=$id?>'>
                 <div class="header_exo">
                     <?php
                     $infoExo = getAllInfoExoById($id);
+                    inputNomExo($id, $infoExo);
                     ?>
-                    <input type="text" name="nom_exercice" placeholder= '<?=$infoExo['nomExercice']?> '/>
-                    
                     <div class="btn_addsup">
-                        <button type="button" id="btn_add" href="interface_menu_prof.php?exo_id=0">Créer</button>        
-                    </div>    
+                        <button type="button" id="btn_add">Créer</button>        
+                    </div>  
+                    
                 </div>
                    
                     
                      <h2>Consigne :</h2>
-                     <textarea name="consigne" cols="50" row="5"><?=$infoExo['enonce'];?></textarea>
-					   <textarea id="phrase_base" cols="50" row="5"><!--todo : phrase de base : infoExo['phrase']--></textarea>
+                        <textarea name="consigne" cols="50" row="5"><?=$infoExo['enonce'];?></textarea>
+                        <textarea name="phrase" id="phrase_base" cols="50" row="5"><?=$infoExo['phrase']?></textarea>
                      
                      <h2>Correction :</h2>                    
                         <textarea name="correction" id="phrase_codee" rows="15" cols="100%"><?=$infoExo['correction'];?></textarea>
@@ -86,6 +86,13 @@
                 </form> 
                 
                         <script type="text/javascript"><!--
+                            
+                            
+                           var btn_creer = document.getElementById('btn_add');
+                           
+                           btn_creer.addEventListener('click', () => {
+                                document.location.href="interface_menu_prof.php?exo_id=0";
+                            });
 							
                            function replaceAll(str, find, replace) {
                              return str.replace(new RegExp(find, 'gi'), replace);

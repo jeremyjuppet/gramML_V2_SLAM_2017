@@ -29,6 +29,7 @@
                     alert("Veuillez entrer votre mot de passe");
                     return false;
                 }
+                
             }
             
         </script>
@@ -42,7 +43,7 @@
             </div>
 	</header>
 		
-	<form method="POST" action="loginDB.php" class="inscription" name="myForm">
+	<form method="POST" action="src/login/loginDB.php" class="inscription" name="myForm">
             <br>
             <div class="label">
 		<h1>GramML.</h1>

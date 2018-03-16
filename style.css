@@ -23,10 +23,6 @@ body{
 	background-image: url("src/img/back.jpg");
 }
 
-.formTitle{
-	
-}
-
 /*.label{
 	#background-color: #b75555;
 }*/
@@ -112,6 +108,7 @@ footer a{
     background-color: #F4EBE2AA;
     box-shadow : 5px 6px 10px #00000091;
     font-weight: 100;
+    z-index: 1;
 }
 
 #page {
@@ -123,34 +120,37 @@ footer a{
 }
 
 #exo {
-    width: 75%;
+    width: 90%;
     height: 1000px;
     background-color: #F4EBE2AA;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 110px;
+    margin-right:10% ;
     margin-bottom: auto;
     text-align: center;
     box-shadow : 0px 0px 20px #00000091;
-	animation:scale-down-center .4s cubic-bezier(.39,.575,.565,1.000) both
+    z-index: 0;
+	/*animation:scale-down-center .4s cubic-bezier(.39,.575,.565,1.000) both*/
 }
 
-#exo:hover{
+/*#exo:hover{
     animation:scale-up-center .4s cubic-bezier(.39,.575,.565,1.000) both
-}
+}*/
 
 .header_exo{
     background-color: #D06161;
-    height: 50px;
+    height: 60px;
     box-shadow : 0px 0px 20px #00000091;
     color: white;
     text-align: left;
+    position: relative;
 }
 
 .header_exo input[type=text]{
     border-radius: 5px;
     font-size: 20px;
     
-    border:none;
+    border:1px solid #D06161;
     outline: none;
     
     color: white;
@@ -167,7 +167,7 @@ footer a{
     border-radius: 5px;
     font-size: 20px;
     
-    border:none;
+    border:1px solid #9e4b47;
     outline: none;
     
     color: white;
@@ -179,13 +179,64 @@ footer a{
     margin-top: 5px;
     height: 75%;
 }
+.form_sup{
+    position: absolute;
+    top: 11.5%;
+    right: 10.75%;
+    z-index: 2;
+
+}
+.btn_sup{
+    background-color: #ffffff24;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    width: 110px;
+    color: white;
+    border:1px solid #D06161;;
+    outline: none;
+    
+}
+
+.btn_sup:hover{
+    background-color: #bb333370;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    width: 110px;
+    color: white;
+    border:1px solid #9e4b47;
+    outline: none;
+}
+.btn_addsup{
+    position: absolute;
+    top: 29.75%;
+    right: 128px;
+
+}
+#btn_add{
+    background-color: #ffffff24;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    width: 110px;
+    color: white;
+    border:1px solid #D06161;;
+    outline: none;
+}
+#btn_add:hover{
+    background-color: #bb333370;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    width: 110px;
+    color: white;
+    border:1px solid #9e4b47;
+    outline: none;
+}
 
 #exo ::placeholder{
     color: white;
-}
-
-#exo_form{
-    
 }
 
 #exo_form input[type=submit]{
