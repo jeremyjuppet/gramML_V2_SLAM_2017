@@ -15,17 +15,23 @@
     <body>
         <header class="header">
             <div>
-                <a href="index.php">
+                <a href="interface_index.php">
                 <img src="src/img/user.png" alt="user" align="right" style="margin-top:5px; margin-right:15px; width:40px;height:40px;-webkit-filter: drop-shadow(0px 0px 5px #222 );filter: drop-shadow(0px 0px 5px #222);">
                 </a>
             </div>
+            
+            <?php
+            
+                include 'DBHandler.php';
+                echo $_SESSION['identifiant'];
+            
+            ?>
         </header>
         
          <div id="navbar">
             <div id="listeexercices">
                 <h1>Exercices</h1>
                 <ul>
-                    
                     <?php
                        echo $listeExos;
                     ?>
@@ -67,8 +73,8 @@
                    
                     
                      <h2>Consigne :</h2>
-                        <textarea name="enonce" cols="50" row="5"><?=$infoExo['enonce'];?></textarea>
-                        <textarea name="phrase_base" id="phrase_base" cols="50" row="5"><?=$infoExo['phrase'];?></textarea>
+                     <textarea name="consigne" cols="50" row="5"><?=$infoExo['enonce'];?></textarea>
+					   <textarea id="phrase_base" cols="50" row="5"><!--todo : phrase de base : infoExo['phrase']--></textarea>
                      
                      <h2>Correction :</h2>                    
                         <textarea name="correction" id="phrase_codee" rows="15" cols="100%"><?=$infoExo['correction'];?></textarea>
@@ -277,14 +283,9 @@
                                 //alert('after recurse :'+root.childNodes.item(i));
                                 }
         }
-
-        var btn_Add = document.getElementById('btn_add');
-
-        btn_Add.addEventListener('click', () => {
-            document.location.href="interface_menu_prof.php?exo_id=0";
-        });
-        
         </script> <!--script -->
         
     </body>
 </html>
+                </form> 
+                
