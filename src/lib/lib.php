@@ -56,6 +56,14 @@ function getExoByID($id){
 	return $t;
 }
 
+function getCorrecExoByID($id){
+	GLOBAL $db;
+        $req="SELECT correction FROM Corrections WHERE fk_exercice=$id";
+	$t = $db->query($req);
+	return $t;
+}
+
+
 function listeExo(){
     $allEx=getAllEx();
     $listeExos = "";
@@ -100,7 +108,7 @@ function getAllInfoExoById($id){
         $phrase="";
         $classe=0;
         $level=0;
-        $correction=0;
+        $correction="";
         $nomExercice = "Insérer nom";
         $infoExo= array(
             "nomExercice" =>$nomExercice, 
@@ -116,8 +124,10 @@ function getAllInfoExoById($id){
 
         return $infoExo;
     }
+    $correction="";
     
     $exById=getExoByID($id);
+    $correcExo =getCorrecExoByID($id);
     
     while ($row = $exById->fetchArray(SQLITE3_ASSOC )) {
         $pkExercice = $row['pk_exercice'];
@@ -129,8 +139,12 @@ function getAllInfoExoById($id){
         $section = $row['fk_section'];
         $typeEx = $row['fk_typeExercice'];
         $professeur = $row['fk_professeur'];
-        $correction = $row['fk_correction'];
     }
+    
+    while ($row = $correcExo->fetchArray(SQLITE3_ASSOC)) {
+         $correction = $row['correction'];
+    }
+    
     $infoExo= array(
         "nomExercice" =>$nomExercice, 
         "level" =>$level,
@@ -175,7 +189,8 @@ function getAllInfoExoByIdEleve($id){
     }
     
     $exById=getExoByID($id);
-    
+    $correcExo =getCorrecExoByID($id);
+        
     while ($row = $exById->fetchArray(SQLITE3_ASSOC )) {
         $pkExercice = $row['pk_exercice'];
         $nomExercice = $row['nom_exercice'];
@@ -186,8 +201,12 @@ function getAllInfoExoByIdEleve($id){
         $section = $row['fk_section'];
         $typeEx = $row['fk_typeExercice'];
         $professeur = $row['fk_professeur'];
-        $correction = $row['fk_correction'];
     }
+    
+    while ($row = $correcExo->fetchArray(SQLITE3_ASSOC)) {
+         $correction = $row['correction'];
+    }
+    
     $infoExo= array(
         "nomExercice" =>$nomExercice, 
         "level" =>$level,
@@ -231,22 +250,31 @@ function deleteExo($id)
 function insertExo($nomExo, $enonce, $correction, $phrase_base)
 {
     GLOBAL $db;
-    $query2 = 'INSERT INTO Corrections(correction) VALUES("'.$correction.'");';
-    if($db->exec($query2) != TRUE)
-    {
-        echo "<h1 style='color: red; font-weight: bold;'>ERREUR requête insert pour Corrections</h1>";
-    }
-    var_dump($correction);
-    $result = $db->query('SELECT pk_correction FROM Corrections WHERE correction = "'.$correction.'";');       
-    while($donnee = $result->fetchArray())
-    {
-        $pk_correction = $donnee['pk_correction'];
-    }
-    $query = "INSERT INTO Exercices(nom_exercice, enonce, fk_correction, phrase) VALUES('$nomExo','$enonce', $pk_correction, '$phrase_base' );";
+    
+    $query = "INSERT INTO Exercices(nom_exercice, enonce, phrase) VALUES('$nomExo','$enonce','$phrase_base' );";
     if($db->exec($query) != TRUE)
     {
         echo "<h1 style='color: red; font-weight: bold;'>ERREUR requête insert pour table exercices</h1>";
     }
     
+    $query3 = "SELECT pk_exercice FROM Exercices WHERE nom_exercice='".$nomExo."' AND enonce = '".$enonce."' AND phrase='".$phrase_base."'";
+
+    $row = $db->query($query3);
+    
+     while($donnee = $row->fetchArray())
+    {
+        $pk_exercice = $donnee['pk_exercice'];
+    }
+    
+           
+    $query2 = 'INSERT INTO Corrections(correction, fk_exercice ) VALUES("'.$correction.'", '.$pk_exercice.');';
+    if($db->exec($query2) != TRUE)
+    {
+        echo "<h1 style='color: red; font-weight: bold;'>ERREUR requête insert pour Corrections</h1>";
+    }
+    
+    
 }
+
+function (){}
 ?>
